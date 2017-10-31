@@ -19,20 +19,10 @@ export default class Login extends Component {
     }
 
 updateUsername(event){
-    let stars = ''
-    for (let i = event.target.value.length; i > 0; i--){
-        stars += '*'
-    }
-    this.setState({ username: event.target.value, usernameInput: stars })
+    this.setState({ username: event.target.value})
 }
 updatePassword(event){
     this.setState({ password: event.target.value})
-    console.log(`event: ${event.target.value}`)
-    let stars = ''
-    for (let i = event.target.value.length; i > 0; i --){stars += '*' }
-    this.setState({ passwordInput: stars})
-    console.log(`pwInput: ${this.state.passwordInput}`)
-    
 }
 
 enterData(){
@@ -44,8 +34,8 @@ render(){
         <div className="Login">
             
             <h2>Enter username and password</h2>
-            <input placeholder="username" className="inputBox" value={this.state.usernameInput} onChange={this.updateUsername}/>
-            <input placeholder="password" className="inputBox" value={this.state.passwordInput} onChange={this.updatePassword}/> 
+            <input placeholder="username" className="inputBox" value={this.state.username} onChange={this.updateUsername}/>
+            <input placeholder="password" type="password" className="inputBox" value={this.state.password} onChange={this.updatePassword}/> 
             <button className='confirmButton' onClick={this.enterData}>Enter</button>
 
         </div>
